@@ -1,0 +1,57 @@
+<div class="row"></div>
+
+<h4>Details of Product</h4>
+
+<div class="row"></div>
+
+@if (Id.HasValue)
+{
+    <div class="row">
+        <div class="col-3">
+            <label>Id</label>
+        </div>
+        <div class="col-3">
+            <label>@Product.Id</label>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-3">
+        <label>Name</label>
+    </div>
+    <div class="col-3">
+        <input @bind-value="@Product.Name"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <label>Description</label>
+    </div>
+    <div class="col-3">
+        <input @bind-value="@Product.Description"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <label>Price</label>
+    </div>
+    <div class="col-3">
+        <input @bind-value="@Product.Price"/>
+    </div>
+</div>
+
+<div class="row"></div>
+
+@if (Id.HasValue)
+{
+    <button @onclick="Update">Update</button>
+}
+else
+{
+    <button @onclick="Create">Create</button>
+}
+
+<button @onclick="Cancel">Cancel</button>

@@ -1,0 +1,36 @@
+﻿<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+@if (ProductsList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <button @onclick="Create">Create</button>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in ProductsList)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td><a style="color: #0a53be; cursor: pointer;" @onclick="(() => NavigateToDetails(product.Id))">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
