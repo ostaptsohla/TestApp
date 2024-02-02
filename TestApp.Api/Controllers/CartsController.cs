@@ -76,4 +76,20 @@ public class CartsController : ControllerBase
         });
         return Ok();
     }
+
+    [HttpGet]
+    [Route("discounts/all")]
+    public async Task<IActionResult> GetAllDiscounts()
+    {
+        var discounts =  await _cartsGrpcContract.GetAllDiscountsAsync();
+        return Ok(discounts);
+    }
+
+    [HttpPost]
+    [Route("discounts")]
+    public async Task<IActionResult> AddDiscount([FromBody] DiscountRequest request)
+    {
+        await _cartsGrpcContract.AddDiscountAsync(request);
+        return Ok();
+    }
 }

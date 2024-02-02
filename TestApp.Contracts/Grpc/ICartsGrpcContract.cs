@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using System.Threading.Tasks;
 using ProtoBuf.Grpc;
 using TestApp.Contracts.Models;
 using TestApp.Contracts.Models.Requests;
@@ -14,5 +15,7 @@ public interface ICartsGrpcContract
     Task DeleteProductFromCartAsync(ProductCartRequest request, CallContext callContext = default);
     Task<CartPc> GetCartByIdAsync(GetCartByIdPcRequest request, CallContext callContext = default);
     Task<List<CartPc>> GetAllCartsAsync(CallContext callContext = default);
+    Task<List<DiscountPc>> GetAllDiscountsAsync(CallContext callContext = default);
+    Task AddDiscountAsync(DiscountRequest request, CallContext callContext = default);
 
 }

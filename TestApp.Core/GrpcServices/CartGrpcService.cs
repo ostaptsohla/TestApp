@@ -41,4 +41,12 @@ public class CartGrpcService : ICartsGrpcContract
     {
         return await _cartService.GetAllCartsAsync(callContext.CancellationToken);
     }
+    public async Task<List<DiscountPc>> GetAllDiscountsAsync(CallContext callContext = default)
+    {
+        return await _cartService.GetAllDiscountsAsync(callContext.CancellationToken);
+    }
+    public async Task AddDiscountAsync(DiscountRequest request, CallContext callContext = default)
+    {
+        await _cartService.AddDiscountAsync(request, callContext.CancellationToken);
+    }
 }

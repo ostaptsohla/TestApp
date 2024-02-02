@@ -3,14 +3,12 @@
 namespace TestApp.Contracts.Models;
 
 [ProtoContract]
-public class CartPc
+public class DiscountPc
 {
     [ProtoMember(1)]
     public int Id { get; set; }
     [ProtoMember(2)]
     public decimal TotalPrice { get; set; }
     [ProtoMember(3)]
-    public decimal Discount { get; set; }
-    [ProtoMember(4)]
-    public ICollection<CartProductPc>? CartProducts { get; set; }
+    public decimal DiscountAmount { get; set; }
 }
