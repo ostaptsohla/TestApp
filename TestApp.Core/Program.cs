@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddGrpcServer();
 builder.Services.AddDbContext<StoreDbContext>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 

@@ -31,7 +31,7 @@ public static class SetupGrpcServer
         }
 
         builder.MapGrpcService<ProductGrpcService>();
-
+        builder.MapGrpcService<CartGrpcService>();
         return builder;
     }
 }

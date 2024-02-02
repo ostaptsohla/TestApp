@@ -28,7 +28,20 @@ public static class SetupGrpcClients
         {
             return httpClientHandler;
         });
-        
+
+        services.AddCodeFirstGrpcClient<ICartsGrpcContract>(o =>
+        {
+            o.Address = new Uri("https://localhost:7267");
+            o.ChannelOptionsActions.Add(opt =>
+            {
+                opt.MaxReceiveMessageSize = null;
+                opt.MaxSendMessageSize = null;
+            });
+        }).ConfigurePrimaryHttpMessageHandler(() =>
+        {
+            return httpClientHandler;
+        });
+
         return services;
     }
 
